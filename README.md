@@ -1,5 +1,17 @@
 # mentionbot
 
-Just testing if i can read mentions
+Just testing if I can read mentions
 
-Now that this works, I'll be porting clearbot to just use a tag instead of actually dealing with prefixes.
+The functionality is quite simple actually:
+
+```javascript
+client.on("message", function(msg) { 
+	if(msg.mentions.users){
+		if(msg.mentions.users.keyArray().includes(client.user.id)){
+			msg.reply('awef');
+		}
+	}
+});
+```
+
+it just checks if the bot user is in the list of mentions in the message.
